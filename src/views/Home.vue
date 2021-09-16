@@ -14,6 +14,7 @@
       <router-view></router-view>
     </transition>
 
+
   </div>
 </template>
 
@@ -38,7 +39,6 @@ export default {
 
     })
   },
-  components: {}
 }
 </script>
 

@@ -5,7 +5,10 @@
       <van-dropdown-item title="价格" v-model="priceVal" :options="filterPrice" @change="priceChanged"/>
       <van-dropdown-item title="分类" v-model="categoryVal" :options="filterCategory" @change="categoryChanged"/>
     </van-dropdown-menu>
-    <ProductItem :goodsList="goodsList"></ProductItem>
+
+    <ProductItem v-if="goodsList.length" :goodsList="goodsList"></ProductItem>
+    <van-empty v-else image="search" description="没有找到结果哦" />
+
   </div>
 </template>
 

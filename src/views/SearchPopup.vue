@@ -14,8 +14,8 @@
     <!-- onInput 当输入框内容发生变化时触发 -->
 
     <!-- 三个界面，三个组件，一个是热词和历史记录，一个是搜索提示，一个是搜索结果 用v-if实现 -->
-    <HistoryHot v-if="comShow === 1" :historyList="historyList" :hotList="hotList"></HistoryHot>
-    <SearchTips v-else-if="comShow === 2" :tipsList="tipsList" :searchValue="searchValue"></SearchTips>
+    <HistoryHot v-if="comShow === 1" :historyList="historyList" :hotList="hotList" @tagClick="tagClick"></HistoryHot>
+    <SearchTips v-else-if="comShow === 2" :tipsList="tipsList" :searchValue="searchValue" @tipsClick="tipsClick"></SearchTips>
     <SearchResult v-else-if="comShow ===3" :filterCategory="filterCategory" :goodsList="goodsList"
                   @categoryChanged="categoryChanged" @priceChanged="priceChanged"/>
   </div>
@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import HistoryHot from "@/components/HistoryHot";
-import SearchTips from "@/components/SearchTips";
+import HistoryHot from "@/components/SearchPopup/HistoryHot";
+import SearchTips from "@/components/SearchPopup/SearchTips";
 import SearchResult from "@/components/SearchResult";
 import {getProductItem, getSearchData, getSearchTipsData} from "@/request/api";
 
@@ -63,6 +63,14 @@ export default {
     }
   },
   methods: {
+    tipsClick(val){
+      this.onSearch(val)
+      this.searchValue = val
+    },
+    tagClick(val) {
+      this.onSearch(val)
+      this.searchValue = val
+    },
     categoryChanged(newVal) {
       this.categoryId = newVal
       this.onSearch(this.searchValue)
