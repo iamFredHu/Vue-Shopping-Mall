@@ -3,11 +3,16 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import "@/vantui"
+import 'reset-css'
+
+Vue.filter("RMBformat", val => {
+    return "￥" + val + "元"
+})
 
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
