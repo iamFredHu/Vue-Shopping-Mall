@@ -17,6 +17,6 @@ VueRouter.prototype.push = function push(location) {
 
 参考：https://blog.csdn.net/luer_LJS/article/details/108362563
 
-### 搜索框，当keyword为空的时候不清空的问题
+### 02.搜索框，当keyword为空的时候不清空的问题
 
 简单解决了一下，使用watch监听输入框中的内容，如果输入框中为空，则用v-if控制列表不显示 又发现一个问题，在请求数据的时候就应该解决，如果搜索框为空，不应该向服务器请求数据了

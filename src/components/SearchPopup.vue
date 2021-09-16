@@ -65,7 +65,6 @@ export default {
   methods: {
     categoryChanged(newVal) {
       this.categoryId = newVal
-      this.sort = "id"
       this.onSearch(this.searchValue)
     },
     priceChanged(newVal) {
