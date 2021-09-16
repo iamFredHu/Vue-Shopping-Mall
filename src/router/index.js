@@ -78,9 +78,7 @@ router.beforeEach((to, from, next) => {
             next()
         } else {
             Toast.fail("请先登录！")
-            setTimeout(() => {
-                next("/user")
-            }, 2000)
+            next("/user")
 
         }
     }

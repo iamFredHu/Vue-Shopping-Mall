@@ -13,7 +13,16 @@ import {
     DropdownItem,
     Empty,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Row,
+    Col,
+    Grid,
+    GridItem,
+    Field,
+    Form,
+    Button
+
 } from 'vant'
 
-Vue.use(Swipe).use(SwipeItem).use(Search).use(Popup).use(Icon).use(Tag).use(List).use(Cell).use(CellGroup).use(DropdownMenu).use(DropdownItem).use(Empty).use(Tabbar).use(TabbarItem)
+Vue.use(Swipe).use(SwipeItem).use(Search).use(Popup).use(Icon).use(Tag).use(List).use(Cell).use(CellGroup).use(DropdownMenu)
+    .use(DropdownItem).use(Empty).use(Tabbar).use(TabbarItem).use(Row).use(Col).use(Grid).use(GridItem).use(Field).use(Form).use(Button)
