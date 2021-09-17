@@ -1,19 +1,31 @@
 <template>
   <ul>
-    <li v-for="item in goodsList" :key="item.id">
+    <li v-for="item in goodsList" :key="item.id" @click="clickItem(item.id)">
       <img :src="item.list_pic_url" style="display: block;" width="100%" alt=""/>
-      <div class="van-ellipsis">{{item.name}}</div>
-      <div class="price">{{ item.retail_price | RMBformat }}</div>
+      <div class="van-ellipsis">{{ item.name }}</div>
+      <div class="price">{{ item.retail_price | rmbFormat }}</div>
       <div></div>
     </li>
-
   </ul>
 </template>
 
 <script>
 export default {
   name: "ProductItem",
-  props: ["goodsList"]
+  inject: ['reload'],
+  props: ["goodsList"],
+  methods: {
+    clickItem(id) {
+      console.log("链接被点了" + id)
+      this.$router.push(`/detail?id=${id}`)
+      setTimeout(() => {
+        this.$router.go(0)
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+      }, 10)
+
+    }
+  }
 }
 </script>
 

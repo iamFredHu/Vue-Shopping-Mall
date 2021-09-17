@@ -18,51 +18,63 @@ const routes = [
     {
         path: '/home',
         name: 'Home',
-        component: () => import('../views/Home'),
+        component: () => import(/* webpackChunkName: "Home" */ '../views/Home'),
         children: [
             {
                 path: 'searchpopup',
                 name: 'SearchPopup',
-                component: () => import('../views/SearchPopup'),
+                component: () => import(/* webpackChunkName: "SearchPopup" */ '../views/SearchPopup'),
             }
         ],
         meta: {
-            active: 0
+            active: 0,
+            showTabBar:1
+        }
+    },
+    {
+        path: '/detail',
+        name: 'Detail',
+        component: () => import(/* webpackChunkName: "Detail" */ '../views/Detail'),
+        meta: {
+            showTabBar:0
         }
     },
     {
         path: '/topic',
         name: 'Topic',
-        component: () => import('../views/Topic'),
+        component: () => import(/* webpackChunkName: "Topic" */ '../views/Topic'),
         meta: {
-            active: 1
+            active: 1,
+            showTabBar:1
         }
     },
     {
         path: '/category',
         name: 'Category',
-        component: () => import('../views/Category'),
+        component: () => import(/* webpackChunkName: "Category" */ '../views/Category'),
         meta: {
-            active: 2
+            active: 2,
+            showTabBar:1
         }
     },
     {
         path: '/cart',
         name: 'Cart',
-        component: () => import('../views/Cart'),
+        component: () => import(/* webpackChunkName: "Cart" */ '../views/Cart'),
         meta: {
-            active: 3
+            active: 3,
+            showTabBar:1
         }
     },
     {
         path: '/user',
         name: 'User',
-        component: () => import('../views/User'),
+        component: () => import(/* webpackChunkName: "User" */ '../views/User'),
         meta: {
-            active: 4
+            active: 4,
+            showTabBar:1
         }
     },
-
 ]
 
 const router = new VueRouter({

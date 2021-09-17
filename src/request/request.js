@@ -10,6 +10,11 @@ const instance = axios.create({
 instance.interceptors.request.use(config => {
     // 在发出请求之前执行这个函数
     // 比如：可以判断用户是否登录，如果没有登陆 则 return
+    let token = localStorage.getItem("token")
+    if (token) {
+        // 携带登录凭证发起请求
+        config.headers["X-Nideshop-Token"] = token
+    }
     return config
 }, err => {
     return Promise.reject(err)
