@@ -3,9 +3,8 @@
     <Tips/>
     <van-checkbox-group v-model="result" :disabled="isEditing" v-for="item in cartList" :key="item.id">
       <van-swipe-cell>
-        <van-checkbox :name="item.id" @click.self="changeCh(item)">
-          <van-card :price="item.retail_price" :title="item.goods_name" :thumb="item.list_pic_url"/>
-        </van-checkbox>
+        <van-checkbox :name="item.id" @click="changeCh(item)"></van-checkbox>
+        <van-card :price="item.retail_price" :title="item.goods_name" :thumb="item.list_pic_url" @click="clickItem(item)"/>
         <van-stepper v-model="item.number" min="1" :max="100" @change="editCart(item)"/>
         <template #right>
           <van-button square text="删除" type="danger" class="delete-button" @click="deleteProduct(item)"/>
@@ -72,6 +71,12 @@ export default {
     }
   },
   methods: {
+    clickItem(item) {
+      this.$router.push(`/detail?id=${item.goods_id}`)
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+      // console.log(item)
+    },
     deleteProduct(item) {
       // 首先请求服务器删除，然后更新页面
       deleteCartProduct({
@@ -171,6 +176,12 @@ export default {
   position: relative;
   top: -35px;
   right: 10px;
+}
+.van-checkbox{
+  position: relative;
+  bottom: -135px;
+  width: 20px;
+  z-index:99;
 }
 
 .goods-card {

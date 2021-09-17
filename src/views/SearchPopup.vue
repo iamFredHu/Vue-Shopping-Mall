@@ -15,9 +15,12 @@
 
     <!-- 三个界面，三个组件，一个是热词和历史记录，一个是搜索提示，一个是搜索结果 用v-if实现 -->
     <HistoryHot v-if="comShow === 1" :historyList="historyList" :hotList="hotList" @tagClick="tagClick"></HistoryHot>
-    <SearchTips v-else-if="comShow === 2" :tipsList="tipsList" :searchValue="searchValue" @tipsClick="tipsClick"></SearchTips>
+    <SearchTips v-else-if="comShow === 2" :tipsList="tipsList" :searchValue="searchValue"
+                @tipsClick="tipsClick"></SearchTips>
     <SearchResult v-else-if="comShow ===3" :filterCategory="filterCategory" :goodsList="goodsList"
                   @categoryChanged="categoryChanged" @priceChanged="priceChanged"/>
+
+
   </div>
 
 </template>
@@ -63,7 +66,7 @@ export default {
     }
   },
   methods: {
-    tipsClick(val){
+    tipsClick(val) {
       this.onSearch(val)
       this.searchValue = val
     },
@@ -128,6 +131,7 @@ export default {
 
 <style scoped>
 .search-popup {
+  z-index: 2;
   width: 100%;
   height: 100%;
   position: absolute;

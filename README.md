@@ -25,6 +25,6 @@ VueRouter.prototype.push = function push(location) {
 
 估计和keep-alive有关，等会儿再试试怎么解决
 
-### 04.图片样式和Ui组件冲突
+### 04.图片样式和UI组件冲突
 
 /deep/ 采用深度样式写法，直接无视UI组件的样式
