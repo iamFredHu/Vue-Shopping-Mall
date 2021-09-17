@@ -12,6 +12,8 @@ export const getCartInfo = () => request.get("cart/index")
 export const clearHistory = () => request.post('/search/clearhistory')
 export const loginPost = params => request.post('/auth/loginByWeb', params)
 export const addToCart = params => request.post('/cart/add', params)
-export const changeChecked = params => request.post('/cart/checked', params)
+export const changeCartChecked = params => request.post('/cart/checked', params)
+export const changeCartNumber = params => request.post('/cart/update', params)
+export const deleteCartProduct = params => request.post('/cart/delete', params)
 
 // get 需要 {} 而 post 不需要

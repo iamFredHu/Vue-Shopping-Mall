@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <van-search shape="round" background="#efefef" v-model="searchValue" :placeholder="placeholderVal" disabled
-                @click="$router.push('/home/searchpopup')"
+                @click="clickSearch"
     />
     <!-- disabled 禁止聚焦 -->
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="#215CC1">
@@ -9,6 +9,8 @@
         <img :src="banner.image_url" width="100%" alt="">
       </van-swipe-item>
     </van-swipe>
+
+    <!--  需要控制是否隐藏  -->
 
     <transition name="van-slide-down">
       <router-view></router-view>
@@ -26,8 +28,14 @@ export default {
   data() {
     return {
       searchValue: "",
-      placeholderVal:'',
-      bannerList: []
+      placeholderVal: '',
+      bannerList: [],
+    }
+  },
+  methods: {
+    clickSearch() {
+      this.$router.push('/home/searchpopup')
+
     }
   },
   created() {
@@ -35,18 +43,17 @@ export default {
       if (res.errno === 0) {
         this.bannerList = res.data.banner
       }
-    }).catch(err => {
-
     })
   },
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .my-swipe .van-swipe-item {
   color: #fff;
   font-size: 20px;
   text-align: center;
 }
+
 
 </style>

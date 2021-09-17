@@ -39,7 +39,7 @@
     <ProductItem :goodsList="goodsList" :ifGo="true"/>
     <van-sku
         ref="sku"
-        v-show="isSkuShow"
+        v-model="isSkuShow"
         :sku="sku"
         :goods="goods"
         :hide-stock="sku.hide_stock"
