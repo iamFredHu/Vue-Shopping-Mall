@@ -6,7 +6,7 @@
       <van-dropdown-item title="分类" v-model="categoryVal" :options="filterCategory" @change="categoryChanged"/>
     </van-dropdown-menu>
 
-    <ProductItem v-if="goodsList.length" :goodsList="goodsList"></ProductItem>
+    <ProductItem v-if="goodsList.length" :goodsList="goodsList" :ifGo="false"></ProductItem>
     <van-empty v-else image="search" description="没有找到结果哦" />
 
   </div>

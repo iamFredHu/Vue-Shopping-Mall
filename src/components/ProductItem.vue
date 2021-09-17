@@ -13,17 +13,16 @@
 export default {
   name: "ProductItem",
   inject: ['reload'],
-  props: ["goodsList"],
+  props: ["goodsList", "ifGo"],
   methods: {
     clickItem(id) {
       console.log("链接被点了" + id)
       this.$router.push(`/detail?id=${id}`)
-      setTimeout(() => {
+      if(this.ifGo){
         this.$router.go(0)
-        document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
-      }, 10)
-
+      }
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
     }
   }
 }

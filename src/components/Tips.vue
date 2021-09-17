@@ -7,7 +7,7 @@
       </van-col>
       <van-col span="8">
         <van-icon name="checked" color="darkred"/>
-        48小时快速退费
+        48小时快速退
       </van-col>
       <van-col span="8">
         <van-icon name="checked" color="darkred"/>

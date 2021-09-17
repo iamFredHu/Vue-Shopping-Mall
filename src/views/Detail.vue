@@ -36,10 +36,10 @@
     <div class="title0">
       <span>大家都在看</span>
     </div>
-    <ProductItem :goodsList="goodsList"/>
+    <ProductItem :goodsList="goodsList" :ifGo="true"/>
     <van-sku
         ref="sku"
-        v-model="isSkuShow"
+        v-show="isSkuShow"
         :sku="sku"
         :goods="goods"
         :hide-stock="sku.hide_stock"
